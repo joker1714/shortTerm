@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>东方潮妆</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+	    <style>
+		body{
+			max-width=640px;
+			max-height=1009px;
+		}
+		@font-face {
+		font-family: title2;
+		src: url('title2.ttf');
+		}
+		.meizhe{
+			background-image:url('imgs/bj4.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#title{
+			font-family: title2;
+			font-size: 50px;
+			position: absolute;
+			top: 10%;
+			left: 12%;
+		}
+		.show{
+			position: absolute;
+			left: 28%;
+			top: 20%;
+			border: 13px dotted #564FE2;
+		}
+		ul{
+			position: absolute;
+			top: 60%;
+			left: 10%;
+			width: 500px;
+			height: 200px;
+			margin: 50px;
+			padding: 10px;
+			list-style-type: none;
+			background-color: none;
+			border-radius: 20px;
+		}
+		li {
+			float: left;
+			margin: 10px 60px 10px 0px;
+		}
+		#t1:hover{
+			border-radius: 20px;
+			border: 5px solid ghostwhite;
+		}
+		#t2:hover{
+			border-radius: 20px;
+			border: 5px solid ghostwhite;
+		}
+		#t3:hover{
+			border-radius: 20px;
+			border: 5px solid ghostwhite;
+		}
+		#step{
+			position: absolute;
+			left: 58%;
+			top: 90%;
+			animation:moveNext 1.5s linear infinite;
+		}
+		@keyframes moveNext {
+		    0% {
+		      left: 59%; /*开始为原始大小*/
+		    }
+		    25% {
+		      left: 57%; /*放大1.1倍*/
+		    }
+		    50% {
+		      left: 59%;
+		    }
+		    75% {
+		      left: 57%;
+		    }
+		  }
+		#tt1{	
+	    float:left;
+	    width:40%;
+	    padding: 140% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 140% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+	    </style>
+	</head>
+	<body>
+		<script src="js/pixi.min.js"></script>
+		<script language="JavaScript">
+			function check1(){
+				var y = document.getElementById('picture');
+				y.setAttribute("src","imgs/t_hjt.jpg");
+			}
+			function check2(){
+				var y = document.getElementById('picture');
+				y.setAttribute("src","imgs/t_lmm.jpg");
+			}
+			function check3(){
+				var y = document.getElementById('picture');
+				y.setAttribute("src","imgs/t_syz.jpg");
+			}
+		</script>
+	    <div class='meizhe'>
+	    	<div id='title'>东方潮妆·尝试新妆容</div>
+			<div>
+				<img class='show' id="picture" src="imgs/t.jpg" height="410px">
+			</div>
+			<ul id='names'>
+				<li id='t1' >
+					<img src="imgs/hongjingtian.png" height="100px" onclick="check1()" >
+				</li>
+				<li id='t2' >
+					<img src="imgs/linmeimei.png" height="100px" onclick="check2()">
+				</li>
+				<li id='t3'>
+					<img src="imgs/songyinzhang.png" height="100px" onclick="check3()">
+				</li>
+			</ul>
+			<div id='names'>
+				<div id='tt1' >
+					<a href="page3.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page5.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+            </div>
+	    </div>
+	</body>
+</html>

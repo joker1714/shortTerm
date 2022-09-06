@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>最合适妆容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+	    <style>
+		body{
+			max-width=640px;
+			max-height=1009px;
+		}
+		.meizhe{
+			background-image:url('imgs/sucai.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		} 
+		.xzt{
+			position: absolute;
+			top:15%;
+			left:15%;
+		    font-size: 50px;
+	    	font-family: 幼圆;
+	    	color: black;
+	    	
+		}
+		ul{
+			position: absolute;
+			top: 30%;
+			left: 7%;
+			width: 700px;
+			height: 200px;
+			margin: 20px;
+			padding: 5px;
+			list-style-type: none;
+			background-color: none;
+			border-radius: 20px;
+		}
+		li {
+			float: left;
+			margin: 10px 40px 10px 0px;
+		}
+		#t1:hover{
+			border-radius: 20px;
+			border: 5px dashed gray;
+		}
+		#t2:hover{
+			border-radius: 20px;
+			border: 5px dashed gray;
+		}
+		#queren{
+			position: absolute;
+			top:70%;
+			left:23%;
+		    font-size: 35px;
+	    	font-family: 华文行楷;
+	    	color: dimgrey;
+	    	text-shadow: 3px 3px plum;
+		}
+		#jg{
+			position: absolute;
+			top:70%;
+			left:23%;
+		    font-size: 35px;
+	    	font-family: 华文行楷;
+	    	color: mediumpurple;
+	    	text-shadow: 3px 3px lightblue;
+	    	display: none;
+		}
+		#zaici{
+			position: absolute;
+			top:65%;
+			left:40%;
+		    font-size: 30px;
+	    	font-family: 华文中宋;
+	    	color:plum;
+	    	display: none;
+	    	
+		}
+		#zaici:hover{
+			border-radius: 10px;
+			border: 3px solid mediumslateblue;
+		}
+		.jieguo1{
+			padding: 55% 10%;
+			
+		}
+		.photo1{	
+	    float:left;
+	    width:40%;
+	    top: 40%;
+		}
+		#pt1{
+			width: 270px;
+			height: 270px;
+			display: none;
+		}
+		#wenzi1{
+		    float:right;
+		    width:40%;
+		    padding: 15% 2%;
+		    font-size: 25px;
+	    	font-family: 华文隶书;
+	    	color: dimgrey;
+	    	text-shadow: 3px 3px lightblue;
+	    	border: 5px dotted cadetblue ;
+	    	display: none;
+	    	
+		    
+		}
+		
+		.photo2{	
+	    float:left;
+	    width:40%;
+	    top: 40%;
+		}
+		#pt2{
+			width: 270px;
+			height: 270px;
+			display: none;
+		}
+		#wenzi2{
+		    float:right;
+		    width:40%;
+		    padding: 15% 2%;
+		    font-size: 25px;
+	    	font-family: 华文隶书;
+	    	color: dimgrey;
+	    	text-shadow: 3px 3px lightblue;
+	    	border: 5px dotted cadetblue ;
+	    	display: none;
+		    
+		}
+		
+		.photo3{	
+	    float:left;
+	    width:40%;
+	    top: 40%;
+	  
+		}
+		#pt3{
+			width: 270px;
+			height: 270px;
+			display: none;
+		}
+		#wenzi3{
+		    float:right;
+		    width:40%;
+		    padding: 15% 2%;
+		    font-size: 25px;
+	    	font-family: 华文隶书;
+	    	color: dimgrey;
+	    	text-shadow: 3px 3px lightblue;
+	    	border: 5px dotted cadetblue ;
+	    	display: none;
+		    
+		}
+		
+		.photo4{	
+	    float:left;
+	    width:40%;
+
+		}
+		#pt4{
+			width: 270px;
+			height: 270px;
+			display: none;
+		}
+		#wenzi4{
+		    float:right;
+		    width:40%;
+		    padding: 15% 2%;
+		    font-size: 25px;
+	    	font-family: 华文隶书;
+	    	color: dimgrey;
+	    	text-shadow: 3px 3px lightblue;
+	    	border: 5px dotted cadetblue ;
+	    	display: none;
+		    
+		}
+		 #tt1{	
+	    float:left;
+	    width:40%;
+	     padding: 30% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 30% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    	<script language="JavaScript">
+    		var a=1;
+    		var sum=0;
+			function fun() {
+                var x = document.getElementById('p1');
+				x.setAttribute("src","imgs/ceshi" + a + ".png");
+				var y = document.getElementById('p2');
+				y.setAttribute("src",'imgs/cs' + a + '.png');
+				a++;
+				if(a==4){
+					sum+=2;
+				}
+				else{
+					sum++;
+				}
+				if(a>6){
+					x.style.display = "none";
+					y.style.display = "none";
+					document.getElementById('queren').style.display ="none";
+					document.getElementById('jg').style.display ="block";
+					document.getElementById('zaici').style.display ="block";
+					if(-7<=sum&&sum<=-4){
+						document.getElementById('pt3').style.display ="block";
+						document.getElementById('wenzi3').style.display ="block";
+					}
+					else if(-3<=sum&&sum<=-1){
+						document.getElementById('pt4').style.display ="block";
+						document.getElementById('wenzi4').style.display ="block";
+					}
+					else if(0<=sum&&sum<=2){
+						document.getElementById('pt2').style.display ="block";
+						document.getElementById('wenzi2').style.display ="block";
+					}
+					else if(3<=sum&&sum<=7){
+						document.getElementById('pt1').style.display ="block";
+						document.getElementById('wenzi1').style.display ="block";
+					}
+								
+				}
+
+            }
+			function fun1() {
+                var x = document.getElementById('p1');
+				x.setAttribute("src","imgs/ceshi" + a + ".png");
+				var y = document.getElementById('p2');
+				y.setAttribute("src",'imgs/cs' + a + '.png');
+				a++;
+				if(a==4){
+					sum-=2;
+				}
+				else{
+					sum--;
+				}
+				if(a>6){
+					x.style.display = "none";
+					y.style.display = "none";
+					document.getElementById('queren').style.display ="none";
+					document.getElementById('jg').style.display ="block";
+					document.getElementById('zaici').style.display ="block";
+					if(-7<=sum&&sum<=-4){
+						document.getElementById('pt3').style.display ="block";
+						document.getElementById('wenzi3').style.display ="block";
+					}
+					else if(-3<=sum&&sum<=-1){
+						document.getElementById('pt4').style.display ="block";
+						document.getElementById('wenzi4').style.display ="block";
+					}
+					else if(0<=sum&&sum<=2){
+						document.getElementById('pt2').style.display ="block";
+						document.getElementById('wenzi2').style.display ="block";
+					}
+					else if(3<=sum&&sum<=7){
+						document.getElementById('pt1').style.display ="block";
+						document.getElementById('wenzi1').style.display ="block";
+					}
+					
+				}
+            }
+			function fun2(){
+				document.getElementById('p1').setAttribute("src","imgs/cs0.png");
+				document.getElementById('p2').setAttribute("src","imgs/ceshi0.png");
+				document.getElementById('p1').style.display ="block";
+				document.getElementById('p2').style.display ="block";
+				document.getElementById('queren').style.display ="block";
+				document.getElementById('jg').style.display ="none";
+				document.getElementById('zaici').style.display ="none";
+				document.getElementById('pt1').style.display ="none";
+				document.getElementById('wenzi1').style.display ="none";
+				document.getElementById('pt2').style.display ="none";
+				document.getElementById('wenzi2').style.display ="none";
+				document.getElementById('pt3').style.display ="none";
+				document.getElementById('wenzi3').style.display ="none";
+				document.getElementById('pt4').style.display ="none";
+				document.getElementById('wenzi4').style.display ="none";
+				sum=0;
+				a=1;
+			}
+	</script>
+    <div class='meizhe'>
+    	<div class="xzt">自测你适合什么妆容</div>
+    	<ul id='names'>
+				<li id='t1' >
+					<img id="p1" src="imgs/cs0.png" width="230" height="250px" onclick="fun()" >
+				</li>
+				<li id='t2' >
+					<img id="p2" src="imgs/ceshi0.png" width="230" height="250px" onclick="fun1()">
+				</li>
+		</ul>
+	<div class="jieguo1">
+		<div class="photo1"><img id="pt1" src="imgs/tianxi.png"></div>
+		<div id="wenzi1">明星参考：章若楠、虞书欣        适合日系或者韩系的妆容或穿搭</div>
+		<div class="photo2"><img id="pt2" src="imgs/yanxi.png"></div>
+		<div id="wenzi2">明星参考：张子枫        小清新少年感的休闲穿搭，适合伪素颜妆容</div>
+		<div class="photo3"><img id="pt3" src="imgs/laxi.png"></div>
+		<div id="wenzi3">明星参考：易梦玲        明艳动人的辣妹感，适合露肤感的衣服和女团妆、猫系妆</div>
+		<div class="photo4"><img id="pt4" src="imgs/kuxi.png"></div>
+		<div id="wenzi4">明星参考：李沁       清冷易碎感妆容和古典妆容，很适合优雅气质穿搭</div>
+   </div>
+        <div id="zaici" onclick="fun2()">再测一次</div>
+		<div id="queren">请点击上方图片进行选择</div>
+		<div id="jg">您测试得出的结果如上</div>
+	<div id='names'>
+				<div id='tt1' >
+					<a href="page4.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page6.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+    </div>
+    </div>
+</body>
+</html>

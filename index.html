@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+    <title>美者颜如玉</title>
+    <style>
+	body{
+		max-width=640px;
+		max-height=1009px;
+	}
+	@font-face {
+		font-family: title1;
+		src: url('title1.ttf');
+	}
+	@font-face {
+		font-family: title2;
+		src: url('title2.ttf');
+	}
+	.meizhe{
+		background-image:url('imgs/bj.jpg');
+		background-size: 100% 100%;
+		width: 640px;
+		height: 1008px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.title1 {
+		margin: 10px auto 0px 40px;
+		font-size: 120px;
+		font-family: title1;
+		color: #444344;
+/*		writing-mode: tb-rl; */
+	}
+	.title2 {
+		margin: 0px auto 10px 40px;
+		font-size: 120px;
+		font-family: title1;
+		color: #eecef1;
+		text-shadow: 0 0 10px #dcb3e0,0 0 20px #564fe2,0 0 30px #564fe2,0 0 40px #564fe2;
+/*		writing-mode: tb-rl; */
+	}
+	/*.title:hover{	
+		color: white;
+		text-shadow: 0 0 10px #40bcee,0 0 20px #40bcee,0 0 30px #40bcee,0 0 40px #40bcee;	//设置发光效果
+
+	}*/
+	#logo{
+		display: block;
+		margin: 10px auto;
+		padding: 10px auto 10px auto;
+	}
+	#index_img{
+		position: absolute;
+		top: 441px;
+		left: 42px;
+	}
+
+	#camera{
+		position: absolute;
+		top: 30%;
+		left: 70%;
+		animation:moveCamera 3s linear infinite;
+	}
+	@keyframes moveCamera {
+	    0% {
+	      transform: scale(1); /*开始为原始大小*/
+	    }
+	    25% {
+	      transform: scale(1.2); /*放大1.1倍*/
+	    }
+	    50% {
+	      transform: scale(1);
+	    }
+	    75% {
+	      transform: scale(1.2);
+	    }
+	  }
+
+	 #camera:hover{
+	 	animation:moveCamera 0s linear infinite;
+	 }
+    </style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <div class='meizhe'>
+    	<div class="logo"><img id='logo' src="imgs/logo.png" width="64px"></div>
+    	<div class='title1' >美者</div>
+    	<div class='title2' >颜如玉</div>
+    	<div calss='camera'><a href="page2.html"><img id='camera' src="imgs/camera.png"  width="100px"></a></div>
+    	<div id = 'index_img'><img src="imgs/girls.png" width="556px"></div>
+    </div>
+</body>
+</html>

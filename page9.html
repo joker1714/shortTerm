@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+    <title>美颜小游戏</title>
+    <style>
+	body{
+		max-width=640px;
+		max-height=1009px;
+	}
+	@font-face {
+		font-family: title2;
+		src: url('word.ttf');
+		}
+	@font-face {
+		font-family: tip;
+		src: url('tip.ttf');
+		}
+	.meizhe{
+		background-image:url('imgs/gamebj.jpg');
+		background-size: 100% 100%;
+		width: 640px;
+		height: 1008px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.answer {
+		position: absolute;
+		top: 200px;
+		left: 42px;
+	}
+	ul{
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			width: 300px;
+			height: 100px;
+			/*margin: 20px;*/
+/*			padding: 10px;*/
+			list-style-type: none;
+			background-color: none;
+			border-radius: 50px;
+		}
+		li {
+			float: left;
+			margin: 5px 30px 10px 10px;
+		}
+		input{
+			width: 50px;
+			height: 25px;
+			border-radius: 50px;
+			font-family: title2;
+			font-size: 15px;
+			background-color: #EECEF1;
+			border-color: #DDA0DD;
+		}
+	#confirm{
+		position: absolute;
+		top: 22%;
+		left: 75%;
+	}
+	#repose{
+		position: absolute;
+		top: 33%;
+		left: 75%;
+	}
+	.letter1{
+		/*animation:moveNext 1.5s linear infinite;*/
+		transition:  opacity 2s linear; 
+		opacity: 0;
+	}
+	.letter2{
+		/*animation:moveNext 1.5s linear infinite;*/
+		transition:  opacity 2s linear; 
+		opacity: 0;
+	}
+	.letter3{
+		/*animation:moveNext 1.5s linear infinite;*/
+		transition:  opacity 2s linear; 
+		opacity: 0;
+	}
+	.letter1Act{
+		opacity: 1;
+	}
+	.letter2Act{
+		opacity: 1;
+	}
+	.letter3Act{
+		opacity: 1;
+	}
+	@keyframes moveNext {
+		    0% {
+		      transition: 25%; 
+		    }
+		    25% {
+		      transition: 50%;
+		    }
+		    50% {
+		      transition: 75%;
+		    }
+		    75% {
+		      transition: 100%;
+		    }
+		  }
+	#stage1{
+		position: absolute;
+		top: 80%;
+		left: 40%;
+	}	
+	#stage2{
+		position: absolute;
+		top: 53%;
+		left: 28%;
+	}
+	#stage3{
+		position: absolute;
+		top: 50%;
+		left: 68%;
+	}	
+	#stage4{
+		position: absolute;
+		top: 63%;
+		left: 50%;
+	}
+	#stage5{
+		position: absolute;
+		top: 70%;
+		left: 15%;
+	}
+	#stage6{
+		position: absolute;
+		top: 83%;
+		left: 64%;
+	}
+	#tips{
+		position: absolute;
+		top: 25%;
+		left: 16%;
+		font-size: 20px;
+		font-family: tip;
+	}
+	
+    </style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <div class='meizhe'>
+    	<div class='answer' ><img id='answer' src="imgs/answer.png" width="400px" height="250px"></div>
+    	<div id = "tips">点击小鸟身上的字母<br>输入六位密码哦~<br>提示：美颜相机的“美颜”英文</div>
+    	<ul id='names'>
+				<li id='t1' >
+					<input type="text" id="flag1" readonly="readonly"/>
+				</li>
+				<li id='t2' >
+					<input type="text" id="flag2" readonly="readonly"/>
+				</li>
+				<li id='t3'>
+					<input type="text" id="flag3" readonly="readonly"/>
+				</li>
+				<li id='t4'>
+					<input type="text" id="flag4" readonly="readonly"/>
+				</li>
+				<li id='t5'>
+					<input type="text" id="flag5" readonly="readonly"/>
+				</li>
+				<li id='t6'>
+					<input type="text" id="flag6" readonly="readonly"/>
+				</li>
+		</ul>
+		<div class='repose'><img id='confirm' src="imgs/game_confirm.png"  width="100px" onclick="confirm()"></div>
+    	<div class='repose'><img id='repose' src="imgs/repose.png"  width="100px" onclick="clean()"></div>
+    	<div id = 'stage2'>
+    		<img src="imgs/E.png" class="letter1" id="E" height="100px" onclick="check2()" >
+    	</div>
+    	<div id = 'stage3'>
+    		<img src="imgs/B.png" class="letter3" id="B" height="100px" onclick="check3()" >
+    	</div>
+    	<div id = 'stage4'>
+    		<img src="imgs/U.png" class="letter2" id="U" height="100px" onclick="check4()" >
+    	</div>
+    	<div id = 'stage5'>
+    		<img src="imgs/Y.png" class="letter1" id="Y" height="100px" onclick="check5()" >
+    	</div>
+    	<div id = 'stage6'>
+    		<img src="imgs/T.png" class="letter2" id="T" height="100px" onclick="check6()" >
+    	</div>
+    	<div id = 'stage1'>
+    		<img src="imgs/A.png" class="letter3" id="A" height="100px" onclick="check1()" >
+    	</div>
+    </div>
+    
+    <script language="JavaScript">
+    	var flag=1;
+    	function clean(){
+    		for(var i=1;i<=6;i++){
+    			document.getElementsByTagName("input")[i-1].value = "";
+    			
+    		}
+    		flag=1;
+    		document.getElementById("stage1").style.visibility='visible';
+    		document.getElementById("stage2").style.visibility='visible';
+    		document.getElementById("stage3").style.visibility='visible';
+    		document.getElementById("stage4").style.visibility='visible';
+    		document.getElementById("stage5").style.visibility='visible';
+    		document.getElementById("stage6").style.visibility='visible';
+    	}
+		function check1(){
+			document.getElementsByTagName("input")[flag-1].value = "A";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage1").style.visibility='hidden';
+		}    	
+		function check2(){
+			document.getElementsByTagName("input")[flag-1].value = "E";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage2").style.visibility='hidden';
+		}
+		function check3(){
+			document.getElementsByTagName("input")[flag-1].value = "B";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage3").style.visibility='hidden';
+		}
+		function check4(){
+			document.getElementsByTagName("input")[flag-1].value = "U";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage4").style.visibility='hidden';
+		}
+		function check5(){
+			document.getElementsByTagName("input")[flag-1].value = "Y";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage5").style.visibility='hidden';
+		}
+		function check6(){
+			document.getElementsByTagName("input")[flag-1].value = "T";
+			flag++;
+			if(flag==7){
+				flag=1;
+			}
+			document.getElementById("stage6").style.visibility='hidden';
+		}
+		function confirm(){
+			if(document.getElementById("flag1").value=="B" && document.getElementById("flag2").value=="E"&&
+				document.getElementById("flag3").value=="A"&& document.getElementById("flag4").value=="U"
+				&& document.getElementById("flag5").value=="T"&& document.getElementById("flag6").value=="Y"){
+					window.location.href='end.html';
+			}
+			else{
+					var y = document.getElementById('confirm');
+					y.setAttribute("src","imgs/game_recon.png");
+			}
+		}
+		function doFade1() {
+		    $('.letter1').toggleClass('letter1Act');
+		    setTimeout(doFade1, 3000);   
+		}
+		function doFade2() {
+		    $('.letter2').toggleClass('letter2Act');
+		    setTimeout(doFade2, 2000);   
+		}
+		function doFade3() {
+		    $('.letter3').toggleClass('letter3Act');
+		    setTimeout(doFade3, 2500);   
+		}
+		$(document).ready(function(){
+		    doFade1();
+		    doFade2();
+		    doFade3();
+		});
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+    <title>美者颜如玉</title>
+    <style>
+	body{
+		max-width=640px;
+		max-height=1009px;
+	}
+	@font-face {
+		font-family: title1;
+		src: url('title1.ttf');
+	}
+	@font-face {
+		font-family: title2;
+		src: url('title2.ttf');
+	}
+	.meizhe{
+		background-image:url('imgs/endbj.jpg');
+		background-size: 100% 100%;
+		width: 640px;
+		height: 1008px;
+		margin: 0 auto;
+		position: relative;
+	}
+	#biaoyv{
+		position: absolute;
+		left: 26%;
+		top:40%;
+		font-family: title2;
+		font-size: 30px;
+	}
+	.title1 {
+		margin: 10px auto 0px 40px;
+		font-size: 120px;
+		font-family: title1;
+		color: #444344;
+/*		writing-mode: tb-rl; */
+	}
+	.title2 {
+		margin: 0px auto 10px 40px;
+		font-size: 120px;
+		font-family: title1;
+		color: #eecef1;
+		text-shadow: 0 0 10px #dcb3e0,0 0 20px #564fe2,0 0 30px #564fe2,0 0 40px #564fe2;
+/*		writing-mode: tb-rl; */
+	}
+	/*.title:hover{	
+		color: white;
+		text-shadow: 0 0 10px #40bcee,0 0 20px #40bcee,0 0 30px #40bcee,0 0 40px #40bcee;	//设置发光效果
+
+	}*/
+	#logo{
+		display: block;
+		margin: 10px auto;
+		padding: 10px auto 10px auto;
+	}
+	#index_img{
+		position: absolute;
+		top: 441px;
+		left: 42px;
+	}
+
+	#camera{
+		position: absolute;
+		top: 30%;
+		left: 70%;
+		animation:moveCamera 3s linear infinite;
+	}
+	@keyframes moveCamera {
+	    0% {
+	      transform: scale(1); /*开始为原始大小*/
+	    }
+	    25% {
+	      transform: scale(1.2); /*放大1.1倍*/
+	    }
+	    50% {
+	      transform: scale(1);
+	    }
+	    75% {
+	      transform: scale(1.2);
+	    }
+	  }
+
+	 #camera:hover{
+	 	animation:moveCamera 0s linear infinite;
+	 }
+	 #div1{
+	 	width: 640px;
+	 	height: 1009px;
+	 	position: absolute;
+	 	background-color: white;
+	 	opacity: 0.5;
+	 	display: none;
+	 }
+	 #gflogo{
+	 	position: absolute;
+	 	top: 30%;
+	 	left: 25%;
+	 	animation:moveCamera 5s 1;
+	 }
+	 .panel{
+	 	position: absolute;
+	 	top: 50%;
+	 	left: 12%;
+	 	display: none;
+	 }
+    </style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+    <div class='meizhe'>
+    	<div id="div1"></div>
+    	<div class='gflogo' ><img id='gflogo' src="imgs/gflogo.png" width="300px"></div>
+    	<div id="biaoyv">聚焦年轻人的兴趣所在</div>
+    	<div class="panel">
+    		<img id='app' src="imgs/app.png" width="120px">
+    		<img id='wechat' src="imgs/wechat.png" width="120px">
+    		<img id='weibo' src="imgs/weibo.png" width="120px">
+    		<img id='xiaohongshu' src="imgs/xiaohongshu.png" width="120px">
+    	</div>
+    </div>
+    <script language="JavaScript">
+		$(document).ready(function(){
+		     $("#div1").fadeToggle(3000);
+		     $("#gflogo").click(function(){
+			    $(".panel").slideDown("slow");
+			  });
+		});
+    </script>
+</body>
+</html>

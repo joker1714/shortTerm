@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>视频宣传</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+	    <style>
+		body{
+			max-width=640px;
+			max-height=1009px;
+		}
+		.meizhe{
+			background-image:url('imgs/bjj.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		} 
+		.shipin1{
+			position: absolute;
+			left: 28%;
+			top: 10%;
+			border: 10px double #6662B1;
+			border-radius: 15px;
+		}
+		.sp{
+			position: absolute;
+			left: 8%;
+			top: 8%;
+		}
+        #spxc{
+        	width: 150px;
+        	height: 320px;
+        }
+		.shipin2{
+			position: absolute;
+			right: 28%;
+			top: 58%;
+			border: 10px double #6683d1;
+			border-radius: 15px;
+		}
+		#dfcz{
+			position: absolute;
+			top:44%;
+			left:10%;
+		    font-size: 120px;
+	    	font-family: 华文行楷;
+	    	color: #EECEF1;
+	    	text-shadow: 0 0 10px mediumpurple,0 0 20px steelblue,0 0 30px azure,0 0 40px silver;
+		}
+		#step{
+			position: absolute;
+			left: 58%;
+			top: 90%;
+			animation:moveNext 1.5s linear infinite;
+		}
+		@keyframes moveNext {
+		    0% {
+		      left: 59%; /*开始为原始大小*/
+		    }
+		    25% {
+		      left: 57%; /*放大1.1倍*/
+		    }
+		    50% {
+		      left: 59%;
+		    }
+		    75% {
+		      left: 57%;
+		    }
+		  }
+		 #tt1{	
+	    float:left;
+	    width:40%;
+	     padding: 145% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 145% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <div class='meizhe'>
+    	<div class="sp">
+    		<img id="spxc" src="imgs/spxc.png" />
+    	</div>
+    	<div class='shipin1'>
+    		<video width="420" height="270" controls="controls" controls poster="imgs/spt2.jpg">
+	        <source src="imgs/jieqi1.mp4" type="video/mp4" />
+            </video>
+    	</div>
+    	<div id='dfcz'>东方潮妆</div>
+    	<div class='shipin2'>
+    		<video width="420" height="270" controls="controls" controls poster="imgs/spt1.jpg">
+	        <source src="imgs/caoben1.mp4" type="video/mp4" />
+            </video>
+    	</div>
+    	<div id='names'>
+				<div id='tt1' >
+					<a href="page5.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page7.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+    </div>
+    </div>
+</body>
+</html>

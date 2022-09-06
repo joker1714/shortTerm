@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+    <title>势力宣传</title>
+    <style>
+		body{
+			max-width=640px;
+			max-height=1009px;
+		}
+		@font-face {
+			font-family: tip;
+			src: url('tip.ttf');
+		}
+		.meizhe{
+			background-image:url('imgs/xc_bj.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#p1{
+			position: absolute;
+			top: 220px;
+			left: 100px;
+			display: none;
+		}
+		#p2{
+			position: absolute;
+			top: 120px;
+			left: 350px;
+			display: none;
+		}
+		#p3{
+			position: absolute;
+			top: 240px;
+			left: 460px;
+			display: none;
+
+		}
+		#center{
+			background-repeat: no-repeat;
+			border: none;
+			width: 200px;
+			position: absolute;
+			top: 42%;
+			left: 35%;
+			animation:moveCenter 1s linear infinite;
+		}
+		@keyframes moveCenter {
+		    0% {
+		      transform: scale(1.2); /*开始为原始大小*/
+		    }
+		    25% {
+		      transform: scale(1); /*放大1.1倍*/
+		    }
+		    50% {
+		      transform: scale(1.2);
+		    }
+		    75% {
+		      transform: scale(1);
+		    }
+		  }
+		#tip{
+			position: absolute;
+			top: 48%;
+			left:42%;
+			font-size: 30px;
+			font-family: tip;
+			color: #f1a5e2;
+			text-shadow: 0 0 10px #f5b2e8,0 0 20px #f5b2e8,0 0 30px #f5b2e8,0 0 40px #f5b2e8;
+		}
+		#p4{
+			position: absolute;
+			top: 600px;
+			left: 80px;
+			display: none;
+
+		}
+		#p5{
+			position: absolute;
+			top: 800px;
+			left: 100px;
+			display: none;
+
+		}
+		#p6{
+			position: absolute;
+			top: 750px;
+			left: 50px;
+			display: none;
+
+		}
+		#p7{
+			position: absolute;
+			top: 600px;
+			left: 400px;
+			display: none;
+
+		}
+		#step{
+			position: absolute;
+			left: 58%;
+			top: 90%;
+			animation:moveNext 1.5s linear infinite;
+		}
+		@keyframes moveNext {
+		    0% {
+		      left: 59%; /*开始为原始大小*/
+		    }
+		    25% {
+		      left: 57%; /*放大1.1倍*/
+		    }
+		    50% {
+		      left: 59%;
+		    }
+		    75% {
+		      left: 57%;
+		    }
+		  }
+		#clear1{
+			width: 10px;
+			height: 10px;
+			color: transparent;
+			position: absolute;
+			top: 220px;
+			left: 330px;
+		} 
+		 #tt1{	
+	    float:left;
+	    width:40%;
+	    padding: 140% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 140% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+    </style>
+</head>
+<body>
+    <script src="js/pixi.min.js">
+    	
+    </script>
+    <script language="JavaScript">
+    	var i=0;
+    	function jump(){
+      		i++;
+      		document.getElementById('p'+i).style.display="block";
+   		}
+//  	function clear1(){
+//    		document.getElementById('p1').style.display="none";
+// 		}
+//  	function clear2(){
+//    		document.getElementById('p2').style.display="none";
+// 		}
+//  	function clear3(){
+//    		document.getElementById('p3').style.display="none";
+// 		}
+//  	function clear4(){
+//    		document.getElementById('p4').style.display="none";
+// 		{
+//  	function clear5(){
+//    		document.getElementById('p5').style.display="none";
+// 		}
+//  	function clear6(){
+//    		document.getElementById('p6').style.display="none";
+// 		}
+//  	function clear7(){
+//    		document.getElementById('p7').style.display="none";
+// 		}
+    </script>
+    <div class='meizhe'>
+			<div><img class='p1' id='p1' src="imgs/p1.png" width="250px"></div>
+	    	<div><img class='p2' id='p2' src="imgs/p2.png" width="200px"></div>
+			<div><img class='p1' id='p3' src="imgs/p3.png" width="170px"></div>
+			<div><img id='center' src="imgs/center.png" width="220px" onclick="jump()"></div>
+			<div id='tip' onclick="jump()">点点心动</div>
+			<div><img class='p2' id='p4' src="imgs/p4.png" width="180px"></div>
+<!--			<button id="clear1" onclick="clear1()"></button>
+-->			<div><img class='p1' id='p5' src="imgs/p5.png" width="240px"></div>
+			<div><img class='p2' id='p6' src="imgs/p6.png" width="160px"></div>
+			<div><img class='p1' id='p7' src="imgs/p7.png" width="160px"></div>
+	<div id='names'>
+				<div id='tt1' >
+					<a href="page2.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page4.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+    </div>
+    </div>
+</body>
+</html>

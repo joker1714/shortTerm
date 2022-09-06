@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+		<title>美颜拼图</title>
+		<style>
+		.meizhe{
+			background-image:url('imgs/pintu_bj.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		}
+		@font-face {
+		font-family: title2;
+		src: url('word.ttf');
+		}
+		@font-face {
+		font-family: tip;
+		src: url('tip.ttf');
+		}
+		#begin{
+			position: absolute;
+			width: 480px;
+			height: 480px;
+			float: left;
+			margin: 50px;
+			padding: 30px;
+			list-style-type: none;
+			background-color: plum;
+			border-radius: 20px;
+		}
+		li {
+			float: left;
+		}
+		#confirm{
+			position: absolute;
+			left: 35%;
+			top: 70%;
+			animation:moveNext 1.5s linear infinite;
+
+		}
+		#tip_6{
+			position: absolute;
+			left: 40%;
+			top: 87%;
+			font-size: 30px;
+			font-family: tip;
+		}
+		#tip_5{
+			position: absolute;
+			left: 33%;
+			top: 60%;
+			font-size: 30px;
+			font-family: title2;
+		}
+		@keyframes moveNext {
+		    0% {
+		      transform: scale(1.2); /*开始为原始大小*/
+		    }
+		    25% {
+		      transform: scale(1); /*放大1.1倍*/
+		    }
+		    50% {
+		      transform: scale(1.2);
+		    }
+		    75% {
+		      transform: scale(1);
+		    }
+		  }
+		#step{
+			position: absolute;
+			left: 58%;
+			top: 90%;
+			animation:moveNext1 1.5s linear infinite;
+		}
+		@keyframes moveNext1 {
+		    0% {
+		      left: 59%; /*开始为原始大小*/
+		    }
+		    25% {
+		      left: 57%; /*放大1.1倍*/
+		    }
+		    50% {
+		      left: 59%;
+		    }
+		    75% {
+		      left: 57%;
+		    }
+		  }
+		   #tt1{	
+	    float:left;
+	    width:40%;
+	     padding: 145% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 145% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class='meizhe'>
+    		<ul id='begin'>
+    		<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_08.png" alt="" width="160px" height="160px" draggable="true" id="drag1" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_04.png" alt="" width="160px" height="160px" draggable="true" id="drag2" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_07.png" alt="" width="160px" height="160px" draggable="true" id="drag3" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_01.png" alt="" width="160px" height="160px" draggable="true" id="drag4" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_03.png" alt="" width="160px" height="160px" draggable="true" id="drag5" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_06.png" alt="" width="160px" height="160px" draggable="true" id="drag6" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_02.png" alt="" width="160px" height="160px" draggable="true" id="drag7" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_09.png" alt="" width="160px" height="160px" draggable="true" id="drag8" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+			<li ondrop="drop(event)" ondragover="dropOver(event)">
+				<img src="imgs/tlogo_05.png" alt="" width="160px" height="160px" draggable="true" id="drag9" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			</li>
+    		</ul>
+    		<div><img id='confirm' src="imgs/confirm.png" width="220px" onclick="check()"></div>
+			<div id="tip_5">请拖拽完成拼图~</div>
+			<div id="tip_6"></div>
+			<div id='names'>
+				<div id='tt1' >
+					<a href="page6.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page8.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+    </div>
+    	</div>
+		<script language="JavaScript">
+		var start_index;
+		var end_index;
+		function dragStart(event) {
+			console.log("dragStart: " + event.target.id);
+			start_index = event.target.id;
+		}
+		function dragEnd(event) {
+			event.preventDefault();
+		}
+		function dropOver(event) {
+			event.preventDefault();
+		}
+		function drop(event) {
+			event.preventDefault();
+			console.log("drop: "+event.target.id);
+			end_index = event.target.id;
+			// 交换id1和id2两个元素的attri属性值
+			exchange(start_index, end_index, "src");
+			// 检查拼图是否已完成，若完成显示对应文本
+//			check();
+		}
+		function exchange(id1, id2, attri){
+			x1=document.getElementById(id1);
+			x2=document.getElementById(id2);
+			var attri1=x1.getAttribute(attri);
+			x1.setAttribute(attri,x2.getAttribute(attri));
+			x2.setAttribute(attri,attri1);
+			// 添加代码：交换id1和id2两个元素的attri属性值
+		}
+		function check(){
+			var x = document.getElementById('tip_6');
+			var y=document.getElementsByTagName("img");
+			var a,b,c,i;
+			for(i=0;i<9;i++)
+			{
+				a=y[i].getAttribute("src");
+				b=a.lastIndexOf(".");
+				c=Number(a.slice(b-2,b));
+				if(c!=i+1){
+					x.style.color='firebrick';
+					x.innerHTML = "再试一次吧!";
+					return false;
+				}
+			}
+			console.log("");
+			x.style.color='steelblue';
+			x.innerHTML = "拼图成功啦！";
+		}
+		x.innerHTML = "";
+		console.log("");
+		</script>
+	</body>
+</html>

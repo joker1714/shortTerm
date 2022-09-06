@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>品牌简介</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0, user-scalable=yes">
+	    <style>
+		body{
+			max-width=640px;
+			max-height=1009px;
+		}
+		@font-face {
+			font-family: word;
+			src: url('word.ttf');
+		}
+		.pinpai{
+			background-image:url('imgs/pinpaibj.jpg');
+			background-size: 100% 100%;
+			width: 640px;
+			height: 1008px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#logo1{
+			position: absolute;
+			top: 150px;
+			left: 100px;
+		}
+		#logo2{
+			position: absolute;
+			top: 60px;
+			left: 340px;
+		}
+		#logo3{
+			position: absolute;
+			top: 252px;
+			left: 480px;
+		}
+		#logo4{
+			position: absolute;
+			top: 600px;
+			left: 80px;
+		}
+		#logo5{
+			position: absolute;
+			top: 800px;
+			left: 150px;
+		}
+		#logo6{
+			position: absolute;
+			top: 730px;
+			left: 300px;
+		}
+		#logo7{
+			position: absolute;
+			top: 700px;
+			left: 560px;
+		}
+		.logo1{
+			animation:moveLogo1 3s linear infinite;
+		}
+		@keyframes moveLogo1 {
+		    0% {
+		      transform: scale(1); /*开始为原始大小*/
+		    }
+		    25% {
+		      transform: scale(1.2); /*放大1.1倍*/
+		    }
+		    50% {
+		      transform: scale(1);
+		    }
+		    75% {
+		      transform: scale(1.2);
+		    }
+		  }
+		.logo2{
+			animation:moveLogo2 3s linear infinite;
+		}
+		@keyframes moveLogo2 {
+		    0% {
+		      transform: scale(1.2); /*开始为原始大小*/
+		    }
+		    25% {
+		      transform: scale(1); /*放大1.1倍*/
+		    }
+		    50% {
+		      transform: scale(1.2);
+		    }
+		    75% {
+		      transform: scale(1);
+		    }
+		  }
+		#pinpaititle{
+			position: absolute;
+			left: 25%;
+			top: 25%;
+		}
+		#jianjie{
+			position: absolute;
+			left: 21%;
+			top: 35%;
+		}
+		#Mword{
+			position: absolute;
+			left: 33%;
+			top: 41%;
+			font-family: word;
+			font-size: 25px;
+			color: #6662b1;
+			text-shadow: 0 0 10px #dcdbf4,0 0 20px #dcdbf4,0 0 30px #dcdbf4,0 0 40px #dcdbf4;
+		}
+		#words{
+			position: absolute;
+			left: 33%;
+			top: 43%;
+			font-family: word;
+			font-size: 18px;
+			color: #6662b1;
+			text-shadow: 0 0 10px #dcdbf4,0 0 20px #dcdbf4,0 0 30px #dcdbf4,0 0 40px #dcdbf4;
+		}
+		#step{
+			position: absolute;
+			left: 58%;
+			top: 90%;
+			animation:moveNext 1.5s linear infinite;
+		}
+		@keyframes moveNext {
+		    0% {
+		      left: 59%; /*开始为原始大小*/
+		    }
+		    25% {
+		      left: 57%; /*放大1.1倍*/
+		    }
+		    50% {
+		      left: 59%;
+		    }
+		    75% {
+		      left: 57%;
+		    }
+		  }
+		   #tt1{	
+	    float:left;
+	    width:40%;
+	     padding: 145% 2%;
+		}
+		#tt2{	
+	    float:right;
+	    width: 15%;
+	     padding: 145% 2%;
+		}
+		#step1{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}#step2{
+			position: absolute;
+			width: 100px;
+			height: 60px;
+		}
+	    </style>
+	</head>
+	<body>
+		<script src="js/pixi.min.js"></script>
+	    <div class='pinpai'>
+	    	<!--<div><img class='logo1' id='logo1' src="imgs/logo.png" width="80px"></div>
+	    	<div><img class='logo2' id='logo2' src="imgs/logo.png" width="100px"></div>
+			<div><img class='logo1' id='logo3' src="imgs/logo.png" width="70px"></div>-->
+			<div><img id='pinpaititle' src="imgs/pinpaititle.png" width="300px"></div>
+			<div>
+				<img id='jianjie' src="imgs/jianjie.png" height="310px">
+				<p id='Mword'>美颜相机</p>
+				<p id='words'><br>是美图公司旗下<br>深耕人像美颜的潮流相机App，<br>
+					以技术创新的方式，<br>不断引领相机行业的发展。</p>
+			</div>
+			<!--<div><img class='logo2' id='logo4' src="imgs/logo.png" width="80px"></div>
+			<div><img class='logo1' id='logo5' src="imgs/logo.png" width="100px"></div>
+			<div><img class='logo2' id='logo6' src="imgs/logo.png" width="60px"></div>-->
+			<div id='names'>
+				<div id='tt1' >
+					<a href="page7.html"><img id='step1' src="imgs/back.png" ></a>
+				</div>
+				<div id='tt2' >
+					<a href="page9.html"><img id='step2' src="imgs/next.png"></a>
+				</div>
+    </div>
+	    </div>
+	</body>
+</html>
