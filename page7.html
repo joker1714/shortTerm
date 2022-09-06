@@ -114,32 +114,32 @@
 	<body>
 		<div class='meizhe'>
     		<ul id='begin'>
-    		<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_08.png" alt="" width="160px" height="160px" draggable="true" id="drag1" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+    		<li >
+				<img src="imgs/tlogo_08.png" alt="" width="160px" height="160px" draggable="true" id="drag1" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_04.png" alt="" width="160px" height="160px" draggable="true" id="drag2" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li >
+				<img src="imgs/tlogo_04.png" alt="" width="160px" height="160px" draggable="true" id="drag2" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_07.png" alt="" width="160px" height="160px" draggable="true" id="drag3" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_07.png" alt="" width="160px" height="160px"  draggable="true" id="drag3" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_01.png" alt="" width="160px" height="160px" draggable="true" id="drag4" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_01.png" alt="" width="160px" height="160px" draggable="true" id="drag4" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_03.png" alt="" width="160px" height="160px" draggable="true" id="drag5" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_03.png" alt="" width="160px" height="160px" draggable="true" id="drag5" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_06.png" alt="" width="160px" height="160px" draggable="true" id="drag6" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_06.png" alt="" width="160px" height="160px" draggable="true" id="drag6" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_02.png" alt="" width="160px" height="160px" draggable="true" id="drag7" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_02.png" alt="" width="160px" height="160px" draggable="true" id="drag7" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_09.png" alt="" width="160px" height="160px" draggable="true" id="drag8" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_09.png" alt="" width="160px" height="160px" draggable="true" id="drag8" onclick="drop(event)">
 			</li>
-			<li ondrop="drop(event)" ondragover="dropOver(event)">
-				<img src="imgs/tlogo_05.png" alt="" width="160px" height="160px" draggable="true" id="drag9" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+			<li>
+				<img src="imgs/tlogo_05.png" alt="" width="160px" height="160px" draggable="true" id="drag9" onclick="drop(event)">
 			</li>
     		</ul>
     		<div><img id='confirm' src="imgs/confirm.png" width="220px" onclick="check()"></div>
@@ -155,39 +155,43 @@
     </div>
     	</div>
 		<script language="JavaScript">
-		var start_index;
-		var end_index;
-		function dragStart(event) {
-			console.log("dragStart: " + event.target.id);
-			start_index = event.target.id;
+		var sFlag=0;
+		var x1;
+		var x2;
+		function drop(event){
+			if(sFlag==0){
+				x1 = event.target.id;
+				sFlag=1;
+				document.getElementById(x1).style.opacity='0.2';
+				document.getElementById(x2).style.opacity='1';
+				
+			}
+			else if(sFlag==1){
+				x2 = event.target.id;
+				exchange(x1,x2,"src");
+				sFlag=0;
+				document.getElementById(x2).style.opacity='0.2';
+				document.getElementById(x1).style.opacity='1';
+				
+			}
 		}
-		function dragEnd(event) {
-			event.preventDefault();
-		}
-		function dropOver(event) {
-			event.preventDefault();
-		}
-		function drop(event) {
-			event.preventDefault();
-			console.log("drop: "+event.target.id);
-			end_index = event.target.id;
-			// 交换id1和id2两个元素的attri属性值
-			exchange(start_index, end_index, "src");
-			// 检查拼图是否已完成，若完成显示对应文本
-//			check();
-		}
-		function exchange(id1, id2, attri){
-			x1=document.getElementById(id1);
-			x2=document.getElementById(id2);
-			var attri1=x1.getAttribute(attri);
-			x1.setAttribute(attri,x2.getAttribute(attri));
-			x2.setAttribute(attri,attri1);
+		
+		function exchange(x1, x2, attri){
+			var id1=document.getElementById(x1);
+			var id2=document.getElementById(x2);
+			var attri1=id1.getAttribute(attri);
+			id1.setAttribute(attri,id2.getAttribute(attri));
+			id2.setAttribute(attri,attri1);
 			// 添加代码：交换id1和id2两个元素的attri属性值
 		}
+		
 		function check(){
 			var x = document.getElementById('tip_6');
 			var y=document.getElementsByTagName("img");
-			var a,b,c,i;
+			var a,b,c,i,j;
+			for(j=1;j<=9;j++){
+				document.getElementById("drag"+j).style.opacity="1";
+			}
 			for(i=0;i<9;i++)
 			{
 				a=y[i].getAttribute("src");
